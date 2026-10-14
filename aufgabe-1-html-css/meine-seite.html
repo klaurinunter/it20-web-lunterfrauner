@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Matcha-Welt</title>
+  <style>
+    :root {
+      --primary: #005a9c;
+      --matcha: #789447;
+      --cream: #f7f5ed;
+      --ink: #263126;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 3rem 1.5rem;
+      background: linear-gradient(135deg, #e6edcf, #f7f5ed);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+    }
+
+    header p {
+      margin-bottom: 0;
+      font-size: 1.15rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--primary);
+    }
+
+    nav a {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+      width: min(100% - 2rem, 1000px);
+      margin: 2rem auto;
+    }
+
+    section {
+      margin: 2rem 0;
+    }
+
+    h2 {
+      color: var(--primary);
+    }
+
+    .kartenbereich {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .karte {
+      flex: 1;
+      padding: 1.25rem;
+      border: 2px solid #d9e1c9;
+      border-radius: 1rem;
+      background: white;
+    }
+
+    .karte h3 {
+      margin-top: 0;
+      color: var(--matcha);
+    }
+
+    .matcha-bild {
+      display: block;
+      width: 100%;
+      max-height: 390px;
+      margin: 1.5rem 0;
+      border: 4px solid white;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #e6edcf;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .kartenbereich {
+        flex-direction: column;
+      }
+
+      header {
+        padding: 2rem 1rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meine Matcha-Welt</h1>
+    <p>Ein kleines Stück Ruhe – Tasse für Tasse.</p>
+  </header>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="#hobbys">Was ich daran mag</a>
+    <a href="#kontakt">Mein Matcha-Moment</a>
+  </nav>
+
+  <main>
+    <section id="hobbys">
+      <h2>Warum ich Matcha mag</h2>
+      <p>
+        Matcha ist fein gemahlener grüner Tee aus Japan. Mich begeistert seine
+        leuchtend grüne Farbe und der besondere Geschmack: leicht herb, angenehm
+        kräftig und trotzdem weich. Am liebsten nehme ich mir am Nachmittag Zeit,
+        das Pulver langsam aufzuschlagen und den ersten Schluck ganz in Ruhe zu
+        genießen. So wird aus einer einfachen Pause ein kleines Ritual.
+      </p>
+
+      <img
+        class="matcha-bild"
+        src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+        alt="Grüner Matcha wird in einer Schale mit einem Bambusbesen zubereitet"
+      >
+
+      <div class="kartenbereich">
+        <article class="karte">
+          <h3>Mein Lieblingsritual</h3>
+          <p>
+            Ich siebe das Matcha-Pulver in eine Schale, gebe heißes, aber nicht
+            kochendes Wasser dazu und schlage es mit einem Bambusbesen schaumig.
+            Das macht Spaß und der Duft erinnert mich sofort an eine gemütliche
+            Pause.
+          </p>
+        </article>
+        <article class="karte">
+          <h3>So genieße ich ihn</h3>
+          <ul>
+            <li>klassisch und warm aufgeschlagen</li>
+            <li>als cremigen Matcha Latte mit Hafermilch</li>
+            <li>an sonnigen Tagen auch als kühlen Eis-Matcha</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <h2>Mein Matcha-Moment</h2>
+      <p>
+        Für mich muss Matcha nicht kompliziert sein. Eine schöne Schale, ein
+        bisschen Zeit und gute Musik reichen schon. Ich probiere gern neue
+        Zubereitungen aus und finde spannend, wie unterschiedlich Matcha je nach
+        Sorte und Zubereitung schmecken kann. Wenn du Matcha auch magst, verrate
+        mir gern deine liebste Art, ihn zu trinken – vielleicht entdecke ich
+        dadurch meinen nächsten Favoriten.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mit Ruhe und einer Prise Matcha gemacht.</p>
+  </footer>
+</body>
+</html>
