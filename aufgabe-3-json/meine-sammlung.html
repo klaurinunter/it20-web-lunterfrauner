@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Sammlung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    #suche {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0.5rem 0 1rem;
+      padding: 0.65rem;
+      font: inherit;
+    }
+
+    #liste {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .karte {
+      padding: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+    }
+
+    .karte h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    #rohdaten {
+      overflow-x: auto;
+      padding: 1rem;
+      background: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meine Sammlung</h1>
+  <label for="suche">Sammlung durchsuchen</label>
+  <input id="suche" placeholder="Suchen …">
+  <p id="treffer" aria-live="polite"></p>
+  <div id="liste"></div>
+  <h2>Rohdaten (JSON)</h2>
+  <pre id="rohdaten"></pre>
+
+  <script>
+    const daten = [
+      { titel: "Minecraft", kategorie: "Sandbox", bewertung: 9 },
+      { titel: "Celeste", kategorie: "Platformer", bewertung: 10 },
+      { titel: "Stardew Valley", kategorie: "Simulation", bewertung: 9 },
+      { titel: "The Legend of Zelda: Breath of the Wild", kategorie: "Adventure", bewertung: 10 },
+      { titel: "Portal 2", kategorie: "Puzzle", bewertung: 9 }
+    ];
+
+    const liste = document.getElementById("liste");
+    const suchfeld = document.getElementById("suche");
+    const treffer = document.getElementById("treffer");
+
+    function zeigeListe(eintraege) {
+      liste.replaceChildren();
+      treffer.textContent = `${eintraege.length} von ${daten.length} Einträgen`;
+
+      eintraege.forEach((eintrag) => {
+        const karte = document.createElement("div");
+        karte.className = "karte";
+
+        const titel = document.createElement("h2");
+        titel.textContent = eintrag.titel;
+
+        const kategorie = document.createElement("p");
+        kategorie.textContent = `Kategorie: ${eintrag.kategorie}`;
+
+        const bewertung = document.createElement("p");
+        bewertung.textContent = `Bewertung: ${eintrag.bewertung}/10`;
+
+        karte.append(titel, kategorie, bewertung);
+        liste.append(karte);
+      });
+    }
+
+    document.getElementById("rohdaten").textContent = JSON.stringify(daten, null, 2);
+    zeigeListe(daten);
+
+    suchfeld.addEventListener("input", () => {
+      const suchtext = suchfeld.value.toLowerCase();
+      const gefilterteEintraege = daten.filter((e) =>
+        e.titel.toLowerCase().includes(suchtext)
+      );
+      zeigeListe(gefilterteEintraege);
+    });
+  </script>
+</body>
+</html>
